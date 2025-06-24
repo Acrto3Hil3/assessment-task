@@ -1,17 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import FrontendApp from './pages/ForntendApp'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginForm from "./components/auth/LoginForm";
+import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    <FrontendApp/>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

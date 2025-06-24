@@ -32,6 +32,8 @@ app.use('/api-v1', serviceRoute); // Service routes
 app.get('/', (req, res) => {
     res.send('Hello World!');
 })
+
+const PORT = process.env.PORT || 5000;  
 // Database connection and server start
 const startServer = async () => {
     try {

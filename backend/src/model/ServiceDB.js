@@ -24,7 +24,7 @@ export const ServiceModel = (sequelize, DataTypes) => {
                 allowNull: false, // cannot be null
             },
             priceOptions: {
-                type: DataTypes.JSONB, // assuming priceOptions is a JSON object
+                type: DataTypes.JSON, // assuming priceOptions is a JSON object
                 allowNull: true, // can be null if not provided
             },
         },
